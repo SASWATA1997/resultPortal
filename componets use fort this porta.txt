@@ -1,0 +1,13 @@
+*items used for this portal* //MAIN FOR THIS PROJECT
+
+1.database connection.//THOUGH TIS IS FOR ALL ADO.NET PROJECT
+2.jquery.
+3.query string.
+4.excel to database data migration
+
+
+*others item* //MAIN FOR ALL  PROJECTS
+
+1.config manager for database connection.//MAIN FOR ADO.NET...
+2.Master page.
+3.content page.

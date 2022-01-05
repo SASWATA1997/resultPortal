@@ -1,0 +1,100 @@
+*html*
+
+  
+    <table>
+        <tr>
+            <td>
+                <asp:Label ID="Label1" runat="server" Text="I.D"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txt_id" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+         <tr>
+            <td>
+                <asp:Label ID="Label2" runat="server" Text="DOB"></asp:Label>
+            </td>
+            <td>
+                <asp:TextBox ID="txt_dob" runat="server"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Button ID="Button1" runat="server" Text="check" OnClick="Button1_Click" />
+            </td>
+            <td>
+                <asp:Label ID="lbl_star" runat="server" Text="*" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+    </table>
+    
+   <script type="text/javascript" language="javascript">
+
+       $(function () {
+           $("#<%=txt_dob.ClientID %>").datepicker({
+               changeMonth: true,
+               changeYear: true,
+               dateFormat: "dd-mm-yy",
+               yearRange: '1950:2018',
+               showOn: "both"
+           });
+       });
+   </script>
+
+
+*coding*
+
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace assignmentAps1
+{
+    public partial class resultList : System.Web.UI.Page
+    {
+        string strCon = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            lbl_star.Visible = false;
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            lbl_star.Visible = true;
+            SqlConnection conn = new SqlConnection(strCon);
+            SqlCommand cmd = new SqlCommand("select Roll_No,Date_of_birth,Result from dbo.studentList where Roll_No='"+txt_id.Text+ "' ; ", conn);
+            string a, b, c;
+            string d, f;
+            a = Convert.ToString(txt_id.Text);
+            b = Convert.ToString(txt_dob.Text);
+            conn.Open();
+            DataSet ds = new DataSet();
+            SqlDataAdapter dr = new SqlDataAdapter(cmd);
+            dr.Fill(ds);
+
+            d = ds.Tables[0].Rows[0][0].ToString();
+            f= ds.Tables[0].Rows[0][1].ToString();
+            c= ds.Tables[0].Rows[0][2].ToString();
+
+            conn.Close();
+            if ((a == d) &&(b == f))
+            {
+                if(c == "FAILED")
+                {
+                    lbl_star.Text = "CONTACT WITH COLLEGE";
+                }
+                else
+                {
+                    Response.Redirect("studentresult.aspx?Roll_No=" + txt_id.Text + "");
+                }
+               
+            }
+
+            else
+            {
+                lbl_star.Text = "PLEASE GIVE YOUR VALIDE I.D OR D.O.B";
+            }
+           
+        }
+    }
+}

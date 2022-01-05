@@ -1,0 +1,259 @@
+hi friend
+this  is my third video in this channel.
+this video is not on problem and solution.
+this video is on creating result webportal project. ASP.NET PROJECT
+
+let me 1st show you my project.
+
+this is  list of student with there result. i want to show their
+result when the give their valid I.D/ROLL AND D.O.B
+
+SEE.......
+
+JUST A MOMENT MY SYSTEM IS LITTLE BIT SLOW :)
+
+SEE....
+
+LET SEE RESULT OF  Akhilesh
+
+LET GIVE WRONG D.O.B OF AKHILESH...
+
+NOW LET SEE RESULT OF Chanchal HE IS FAILED CANDIDATE.
+
+I THINK YOU UNDERSTAND MY PROJECT....
+
+LET DISCUSS HOW I MAKE THIS PROJECT.
+
+
+BEFORE I SHOWING YOU STEPS 1ST I TELL YOU WHAT ARE THE COMPONENTS
+I USED FOR THIS PROJECT.
+
+1ST MASTER PAGE FOR THIS PAGE.
+
+I THINK YOU ALL KNOW ABOUT MASTER PAGE. IF NOT PLEASE GOOGLE
+IT.
+
+CONTENT PAGE IS THE DYNAMIC PAGE IN THIS PROJECT.
+
+NOW DOWNLOAD SAMPLE MASTER PAGE FROM BROWSER...
+
+YOU CAN FIND MANY SAMPLE FROM THAT WEBSITE DOWNLOAD IT.
+AS I ALREADY DOWNLOAD IT BEFORE SO I AM NOT FURTHER DOWNLOAD THAT.
+FOR THIS PROJECT I USE "Educational Theory Free Website Template - Free-CSS.com"
+THIS MASTER PAGE TEMPLETE
+I USE THIS PART "full-width" AS MY MASTER PAGE......
+
+STEP 1:
+MASTER PAGE CREATION AND DATABASE TABLE CREATION.
+
+A1.FOR MASTER PAGE.
+YOU CAN CREATE OR DOWNLOAD FREE MASTER PAGE TEMPLATE FROM
+BROWSER "https://www.free-css.com/free-css-templates" PROVIDE
+YOU AT DESCRIPTION.
+AS I ALREADY HAVE A FREE MASTER PAGE TEMPLET. SO I USED THAT.
+
+"2022_sound_master"THIS IS MY FREE MASTER PAGE TEMPLET FOLDER 
+I USE THIS 
+
+TO USE THIS IN MY PROJECT 1ST ADD IT'S CSS , JS FILE, OTHER NESSCERY
+FILE.
+IN PROJECT.
+
+A1.
+NOW CREATE A MASTER PAGE IN YOUR PROJECT NAME IT LIKE"MAINMASTER"
+delete content prest in that master page and add your own
+master page content
+DELETE FROM HEADE TO BODY 
+
+COPY AND PASTE IN PROJECT MASTER PAGE.
+
+I DONT NEED THIS PART SO....
+
+THIS PART IS MY DYNAMIC PAGE PART.... SHOW IN NEXT STEP.
+
+A2.
+DATABASE TABLE CREATION.
+now as i migrate data from excel sheet to database so
+i have to create table according to exacel.
+as i have to create table with number of coloum present
+in my excel table 
+
+here A-L 12 coloum so i have to crete 12 coloum and
+coloum name should be ordered according to name in this 
+excel.
+other wise data will not migrate
+
+here coloum name is 
+1.Roll_No	
+2.Name	
+3.Date_of_birth	
+4.Accountancy	
+5.English	
+6.Maths	
+7.Economics	
+8.Business_Studies	
+9.Total	
+10.Average	
+11.Grade	
+12.Result
+
+this order
+
+and coloum name in database should be according to coloum
+present in excel list
+
+example:
+as in excel coloum name for Business_Studies is 
+*Business_Studies*
+coloum name should be "Business_Studies"
+if in database coloum name be
+ Business Studies/business_studies in this format
+magration not happned
+
+i already have ddl query for this table . so i used that
+but when you create plese check it quietly otherwise
+error happned... :)
+
+END OF STEP1....
+
+STEP2:
+DATA MIGRATION AND CONTENT PAGE CREATION
+
+A1.
+FOR DATA MIGRATION FROM EXCEL TO DATABASE YOU HAVE TO IMPORT
+YOUR EXCEL SHEET TO MYSQL DATA BASE..
+SO FOR THIS WATCH THROUGHLY....
+
+IN DATA SOURCE GIVE THE SOURCE OF DATA FROM WHICH
+YOU WANT TO IMPORT
+IN THIS CASE DATA SOURCE IS MS EXCEL.
+IF U WANT TO IMPORT FROM OTHER SOURCE GIVE THAT SOURCE.
+
+FILE PATH: WHICH FILE YOUR FILE NAME 
+IN THIS CASE FILE NAME IS
+
+NOW FROM WHICH SHEET YOU WANT TO IMPORT DATA
+IN THIS CASE SHEET NO IS
+IMPORT DATA TO WHICH TABLE IN THIS DATABASE.
+HERE TABLE NAME DBO.STUDENTLIST
+
+PRIVEW THE DATA ... AS IT IMPORT IT CORRECT MANER OR NOT
+OR IMPORT FROM EXACT FILE OR NOT.
+
+LET'S CHECK IN MY DATABASE.
+
+FINE..... :)
+ A2.
+DYNAMIC PAGE/CONTENT PAGE
+SO TO USE MASTER PAGE IN CONTENT PAGE 1ST WE HAVE TO MAKE
+A FORM AND ADD CONENTPLACEHOLDER IN MASTER PAGE.
+NOW CONTENT PAGE USE THAT PART OTHER WISE YOU WILL NOT ADD
+LABEL, BUTTON IN CONTENT PAGE.
+
+ADD A CONTENT PAGE / CONTENT WEBFROM WITH MASTER PAGE
+ IN YOUR PROJECT.
+NAME IT JUST LIKE "RESULTCHECK";
+THIS PAGE IS THE 1ST CONTENT PAGE HERE STUDENT
+GIVE ROLL AND DOB  TO ENTER INTO TO RESULTSITE.
+
+CREATE ANOTHER CONTENT PAGE WITH WEB FROM WHERE YOU DISPLAY
+RESULT.
+
+HERE I SHOW DATA IN TABLE FORMAT SO FOR THIS I CREATE ASPX 
+TABLE.
+
+I ALREADY HAVE THIS TABLE FORMAT SO I USED THIS WITHOUT
+WASTING TIME.
+I GIVE THIS FORMAT IN DESCRIPTION.
+
+end of step2......
+
+STEP3:
+JQUERY FOR CALANDER AND DATABASE CONNECTION:
+
+NOW RESULTSHOW AND RESULTCHECK ARE TWO CONTENT PAGE FOR THIS PROJECT
+AND I DEVELOP REST PART BY ONLY USE THIS TWO PAGES.
+
+A1.
+JQUERY FOR CALANDER:
+LET ME SHOW YOU MY PROJECT AGAIN.
+
+TO DISPLAY CALANDER IN MY PROJECT ASPX HAVE CALNDER ELEMENT.
+BUT IF WE USE THIS WE CANNOT CONTROLL YEAR AND MONTH IN THIS CALANDER 
+JUST LIKE THIS
+
+TO USE THIS WE HAVE TO CREATE A JQUERY IN OUR PROJECT.
+HERE I'M USING THIS CALANDER IN "RESULTCHECK.ASPX" CONTENT PAGE
+SO CREATE A JQUERY IN THAT PAGE.
+
+WRITE YOUR QUERY INSIDE CONTENT PLACEHOLDER TAG NOT OUT SIDE.
+OTHERWISE YOU CANNOT USE THAT JQUERY.
+
+TO USE JQUERY CODE LINK SOME JQUERY FILE AT THE TOP and IN MASTER PAGE.
+EITHER USE CDN OR DOWNLOAD IT.
+I DOWNLOAD JQUERY FILE. SO I USE OFFLINE LINK.
+
+YOU CAN DOWNLOAD OFFLINE FILE FORM.
+https://jquery.com/download/
+Download the compressed, production jQuery 3.6.0<-THIS FILE
+AND
+
+DOWNLOAD FORM https://jqueryui.com/download/
+
+attached jquery file in main master otherwise u cannot use jquery in ur
+content page. inside head tag in mainmaster page.
+  
+if u want to make a button use.
+
+A2.
+DATABASE CONNECTION.
+I THINK YOU ALL KNOW ABOUT DATABASE CONNECTION. IF NOT FOLLOW STEPS.
+
+i think you throughly follow steps .
+this dbcon is database alise name whiCh i use in every coding.
+
+end 0f step 3....... 
+
+STEP4:
+C# CODING & QUERY STRING. 
+
+A1.FOR PAGE RESULTCHECK.ASPX
+
+IN THIS PAGE WE HAVE TO CHECK IF ALL DETALIS PRESENT FOR ROLL NO GIVEN
+CORRECT OR NOT IF CORRECT THEN WE PASS ID  VALUE TO NEXT PAGE
+HERE RESULTSHOW.ASPX
+SO FIRST I CHECK THE DETALIS FROM FRONT END TO BACKEND DATABASE.
+
+/*using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;*/
+
+THIS THREE SYSTEM FILE IS IMPORTANT FOR DATABASE CONNECTION WITH FORNT END
+ string strCon = ConfigurationManager.ConnectionStrings["<database alise name>"].ConnectionString ;
+important for connection.
+
+YOU SEE UPTO POGRAMME WORKS FINE.
+NOW COMES THE MOST IMPORTANT PART IS PASSING ID TAKEN FROM "RESULTCHECK"
+PAGE TO RESULTSHOW PAGE.
+WE SOLVE THIS BY USING QUERYSTRING.
+
+NOW
+
+ Response.Redirect("resultShow.aspx?Roll_No="+txt_id.Text+"");
+by this txt_id value i send to resultShow page through query.
+
+A2.
+coding for resultShow page
+
+by using query string we fetch id value passing from the previous page.
+
+END OF STEP4.....
+
+LET RUN.....
+
+let's give wrong d.o.b
+
+let check for failed student
+
+
+THANK YOU ............

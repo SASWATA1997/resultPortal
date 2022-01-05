@@ -1,0 +1,11 @@
+*after system web* 
+<appSettings>
+    <add key="ValidationSettings:UnobtrusiveValidationMode" value="None" />
+  </appSettings>
+
+
+<connectionStrings>
+    <add name="dbcon" connectionString="Data Source=DESKTOP-A4CEH3I\SQLEXPRESS;Initial Catalog=assigmentAps1Db;Integrated Security=True" />
+    <add name="assigmentAps1DbConnectionString" connectionString="Data Source=DESKTOP-A4CEH3I\SQLEXPRESS;Initial Catalog=assigmentAps1Db;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>

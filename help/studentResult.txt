@@ -1,0 +1,118 @@
+*html*
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Table ID="Table2" runat="server" Height="46px" Width="492px" BorderColor="Red" BorderStyle="Solid">
+        <asp:TableRow runat="server" BackColor="White" BorderStyle="None">
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Inset" ForeColor="Black">NAME</asp:TableCell>
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid" ForeColor="Black">
+                <asp:Label ID="lbl_name" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset" ForeColor="Black">ID</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_id" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+    </br>
+    <asp:Table ID="Table1" runat="server" Height="151px" Width="400px" BorderColor="Red" BorderStyle="Solid" style="margin-right: 112px">
+        <asp:TableRow runat="server" BackColor="#99CCFF" BorderStyle="None">
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Inset" ForeColor="Black">SUBJECT</asp:TableCell>
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid" ForeColor="Black">MARKS</asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset">Accountancy</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_acc" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset">English</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_eng" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset">Maths</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_math" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset">Economics</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_eco" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server">
+            <asp:TableCell runat="server" BorderStyle="Outset">Business_Studies</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_bs" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server" BackColor="#66CCFF">
+            <asp:TableCell runat="server" BorderStyle="Outset" ForeColor="Black">TOTAL</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset" ForeColor="Black">
+                <asp:Label ID="lbl_tot" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table></br>
+    <asp:Table ID="Table3" runat="server" Height="43px" Width="242px" BorderColor="Red" BorderStyle="Solid" style="margin-bottom: 0px">
+        <asp:TableRow runat="server" BackColor="#99CCFF" BorderStyle="None">
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Inset" ForeColor="Black">RESULT</asp:TableCell>
+            <asp:TableCell runat="server" BorderColor="Black" BorderStyle="Solid" ForeColor="Black">
+                <asp:Label ID="lbl_res" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow runat="server" BackColor="#66CCFF" ForeColor="Black">
+            <asp:TableCell runat="server" BorderStyle="Outset">GRADE</asp:TableCell>
+            <asp:TableCell runat="server" BorderStyle="Outset">
+                <asp:Label ID="lbl_gra" runat="server" Text="Label"></asp:Label>
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+</asp:Content>
+
+*cs coding*
+
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace assignmentAps1
+{
+    public partial class studentResult : System.Web.UI.Page
+    {
+        string strCon = ConfigurationManager.ConnectionStrings["dbcon"].ConnectionString;
+        string id = "";
+        protected void Page_Load(object sender, EventArgs e)
+        {
+             id = Request.QueryString["Roll_No"].ToString();
+            BindControlvalues();
+
+        }
+
+        private void BindControlvalues()
+        {
+            SqlConnection conn = new SqlConnection(strCon);
+            SqlCommand cmd = new SqlCommand("select * from dbo.studentList where Roll_No='"+ id +"' ;", conn);
+            conn.Open();
+
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(ds);
+            lbl_id.Text= ds.Tables[0].Rows[0][0].ToString();
+            lbl_name.Text = ds.Tables[0].Rows[0][1].ToString();
+            lbl_acc.Text = ds.Tables[0].Rows[0][3].ToString();
+            lbl_eng.Text = ds.Tables[0].Rows[0][4].ToString();
+            lbl_math.Text = ds.Tables[0].Rows[0][5].ToString();
+            lbl_eco.Text = ds.Tables[0].Rows[0][6].ToString();
+            lbl_bs.Text = ds.Tables[0].Rows[0][7].ToString();
+            lbl_tot.Text = ds.Tables[0].Rows[0][8].ToString();
+            lbl_gra.Text = ds.Tables[0].Rows[0][10].ToString();
+            lbl_res.Text = ds.Tables[0].Rows[0][11].ToString();
+            conn.Close();
+        }
+    }
+}
